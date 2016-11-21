@@ -1,0 +1,38 @@
+
+<h1>Movies</h1>
+        <div id="unWatchedDiv">
+        <h2>Unwatched Movies</h2>
+            <p style="text-align: center">You have {{numberUnWatched}} Unwatched Movies</p>
+                <div class="input-group"> <span class="input-group-addon">Filter</span>
+                    <input id="filter" ng-model="Title" type="text" class="form-control" placeholder="Search Unwatched Movies..."></div>
+
+<div class="row" id="Unwatchedmovie" ng-repeat="movie in movieList | filter:Title | orderBy : 'Title'"  ng-show="!movie.Watched">
+ <span ng-click = "movieInfo(movie)"> <div class="col-sm-4">  <img  id= "thumbImage" src="{{movie.Poster}}" width="70px" height="80px"></div><div class="col-sm-4"><span id="mainTitle">{{movie.Title}}</span></div></span> <div class="col-sm-2"> <button type="submit" ng-click = "delete(movie._id)"  id="deleteButton"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+</div>
+    <div class="col-sm-2">
+    <input type="checkbox"id="movieCheckBox" ng-change="watchedChange(movie)" ng-model="movie.Watched"/><span id="watchStatus"> Unwatched</span>
+    </div>
+
+</div>
+        </div>
+        <div id="watchedDiv">
+        <h2>Watched Movies</h2>
+            <p style="text-align: center">You have {{numberWatched}} Watched Movies</p>
+            <div class="input-group"> <span class="input-group-addon">Filter</span>
+                <input id="filter" ng-model="Title" type="text" class="form-control" placeholder="Search Watched Movies..."></div>
+<div class="row" id="watchedmovie" ng-repeat="movie in movieList | filter:Title | orderBy : 'Title'" ng-show="movie.Watched">
+    <span ng-click = "movieInfo(movie)"> <div class="col-sm-4">  <img  id= "thumbImage" src="{{movie.Poster}}" width="70px" height="80px"></div><div class="col-sm-4"><span id="mainTitle">{{movie.Title}}</span></div></span> <div class="col-sm-2"> <button type="submit" ng-click = "delete(movie._id)"  id="deleteButton"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+</div>
+    <div class="col-sm-2" >
+        <input id="movieCheckBox" type="checkbox" ng-change="watchedChange(movie)" ng-model="movie.Watched"/><span id="watchStatus"> watched</span>
+    </div>
+
+</div>
+        </div>
+<form name="myForm"id="myForm" novalidate>
+    <input  type="text" id="movieInput" name="movieName" ng-model="movieName"  placeholder="Add Movie" required> <input  type="number" id="movieInput" name="movieYear" ng-model="movieYear"  placeholder="Year(optional)"><br>
+    <button type="submit" ng-click = "movieSubmit()"ng-disabled="!(myForm.$valid)" id="submitButton">Submit</button>
+</form>
+
+
+

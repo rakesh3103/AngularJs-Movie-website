@@ -1,0 +1,90 @@
+<button type="submit"   id="homeButton"ng-click = "back()" ><span class="glyphicon glyphicon-home"> Home</span></button>
+<span class="watchNoti" style="text-align: center; color:green" ng-show="detailMovie.Watched"><span class="glyphicon glyphicon-ok"></span> You have watched this Movie</span>
+<span class = "watchNoti" style="text-align: center; color:#ff4d4d" ng-show="!detailMovie.Watched"><span class="glyphicon glyphicon-film"></span> You did not watch this Movie</span>
+<h1>{{detailMovie.Title}}</h1>
+<div class="row">
+    <div class="col-sm-12">
+   <img id="mainImage"src="{{detailMovie.Poster}}">
+    </div>
+    <div class="col-sm-12">
+        <table class="table-striped table-hover myTable">
+            <tr ng-hide={{detailMovie.Title=='N/A'}}>
+                <td class="index">
+                    Title
+                </td>
+                <td><a href="https://www.google.com/#q={{detailMovie.Title}} {{detailMovie.Year}}" target="_blank">{{detailMovie.Title}}</a></td>
+            </tr>
+            <tr ng-hide={{detailMovie.Year=='N/A'}}>
+                <td class="index">Year</td>
+                <td>{{detailMovie.Year}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.imdbID=='N/A'}}>
+                <td class="index">IMDB Rating</td>
+                <td><a href="http://www.imdb.com/title/{{detailMovie.imdbID}}" target="_blank">{{detailMovie.imdbRating}}</a></td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.tomatoMeter=='N/A'}}>
+                <td class="index">Rotten Tomato</td>
+                <td><a href="{{detailMovie.tomatoURL}}" target="_blank">{{detailMovie.tomatoMeter}}%</a></td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Rated=='N/A'}}>
+                <td class="index">Rated</td>
+                <td>{{detailMovie.Rated}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Runtime=='N/A'}}>
+                <td class="index">Run-Time</td>
+                <td>{{detailMovie.Runtime}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Country=='N/A'}}>
+                <td class="index">Country</td>
+                <td>{{detailMovie.Country}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Genre=='N/A'}}>
+                <td class="index">Genre</td>
+                <td>{{detailMovie.Genre}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Director=='N/A'}}>
+                <td class="index">Director</td>
+                <td>{{detailMovie.Director}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Actors=='N/A'}}>
+                <td class="index">Actors</td>
+                <td>{{detailMovie.Actors}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Language=='N/A'}}>
+                <td class="index">Language</td>
+                <td>{{detailMovie.Language}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Awards=='N/A'}}>
+                <td class="index">Awards</td>
+                <td>{{detailMovie.Awards}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.Plot=='N/A'}}>
+                <td class="index">Plot</td>
+                <td>{{detailMovie.Plot}}</td>
+            </tr>
+
+            <tr ng-hide={{detailMovie.BoxOffice=='N/A'}}>
+                <td class="index">BoxOffice</td>
+                <td>{{detailMovie.BoxOffice}}</td>
+            </tr>
+
+
+
+
+
+
+        </table>
+    </div>
+</div>
+
